@@ -1,0 +1,3 @@
+name: kanban-audit
+version: "0.1.0"
+description: "kanban 审计面板 — 只读统计卡流/专家/缺口,给出 issue 与处置建议(v0.1)。"

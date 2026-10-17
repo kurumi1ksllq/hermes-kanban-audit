@@ -1,0 +1,4 @@
+{
+  "name": "kanban-audit",
+  "api": "plugin_api.py"
+}

@@ -1,0 +1,9 @@
+__pycache__/
+*.py[cod]
+.ruff_cache/
+pi_*.log
+pi_drive_runs/
+pi_drive_backend.*
+需求书-*.md
+验收-*.md
+设计文档-v0.1.md
