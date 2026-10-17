@@ -205,21 +205,23 @@ hermes logs gateway -f                                                          
 | 假能力主动探针 | 缺口只从卡/评论/自评文本里**提取**,不会主动去探测某能力是否真的缺失 |
 | 趋势视图 | 只有当前快照(问题/专家画像/缺口三视图);时间趋势留 v0.2 |
 | 成本 | 各 profile 的 cost 依赖会话库里的计价字段,当前实测多为 0.0000(本机未计价),不是统计错误 |
-| `context_map.yaml` | 对口专家基准表仍是**草稿 v0.1**,`分配错配` 的判定随它变;用户审核前不要把结论当最终口径 |
+| `context_map.yaml` | 对口专家基准表仍是**草稿 v0.1**(§4.3),v0.1 **不参与任何判定**,仅作给人看的提示;对口率 v0.3 才接它 |
 
 ---
 
 ## 附:实测证据(2026-10-18,由 coder 在本机执行)
 
+> 本节所有运行数 / 解析率 / 问题条数均为 **2026-10-18 定稿时点的快照**;`kanban.db` 持续增长,这些数字会随库漂移,**不作为判据**。表内 sha256 是安装一致性判据,每次交付前重算。
+
 **安装一致性**(安装目录 vs 订单目录,`sha256sum` 全等):
 
 | 文件 | sha256 |
 |---|---|
-| engine.py | `5cbf2666…efe67` |
+| engine.py | `cf33d821…f26e85` |
 | plugin.yaml | `0129df4f…2335` |
 | dashboard/plugin_api.py | `8dcef377…fc17` |
 | dashboard/manifest.json | `5aae06a6…2057` |
-| desktop/plugin.js | `75eb54f6…b4e5` |
+| desktop/plugin.js | `01bafe30…701d5` |
 
 **`hermes plugins validate $HERMES_HOME\plugins\kanban-audit`** → 退出码 0:
 

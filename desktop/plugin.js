@@ -36,7 +36,7 @@ const fmtTs = (v) => {
   return fmtDateTime.format(d)
 }
 const errMsg = (e) => (e && e.message ? String(e.message) : String(e || '未知错误'))
-const sevColor = (s) => (s >= 75 ? 'var(--ui-danger)' : s >= 50 ? 'var(--ui-orange)' : 'var(--ui-text-tertiary)')
+const sevColor = (s) => (s >= 75 ? 'var(--ui-red)' : s >= 50 ? 'var(--ui-orange)' : 'var(--ui-text-tertiary)')
 
 // ── 通用样式(颜色只用主题变量)──────────────────────────────────────────────
 const S = {
@@ -124,7 +124,7 @@ function EmptyText({ text }) {
 
 function ErrorBox({ error }) {
   return jsxs('div', { style: { padding: '16px' }, children: [
-    jsx('div', { style: { color: 'var(--ui-danger)' }, children: '接口不可用:' + errMsg(error) }),
+    jsx('div', { style: { color: 'var(--ui-red)' }, children: '接口不可用:' + errMsg(error) }),
     jsx('div', { style: { marginTop: '4px', color: 'var(--ui-text-tertiary)' }, children: '检查后端开关(plugins.enabled)与 gateway 是否已重启' })
   ]})
 }
@@ -205,7 +205,7 @@ function CardDetail({ taskId }) {
   })
 
   if (q.error && !q.data) {
-    return jsx('div', { style: S.card, children: jsx('span', { style: { color: 'var(--ui-danger)' }, children: '卡详情加载失败:' + errMsg(q.error) }) })
+    return jsx('div', { style: S.card, children: jsx('span', { style: { color: 'var(--ui-red)' }, children: '卡详情加载失败:' + errMsg(q.error) }) })
   }
   if (q.isPending || !q.data) return jsx('div', { style: S.card, children: '卡详情加载中…' })
 
@@ -359,7 +359,7 @@ function ReuseCell({ agent }) {
   if (v === null) return jsx('span', { children: '—' })
   const text = pct1(v) + '(线 ' + (base === null ? '—' : pct1(base)) + ')'
   const bad = base !== null && v < base
-  return jsx('span', { style: bad ? { color: 'var(--ui-danger)' } : undefined, children: bad ? '⚠ ' + text : text })
+  return jsx('span', { style: bad ? { color: 'var(--ui-red)' } : undefined, children: bad ? '⚠ ' + text : text })
 }
 
 function AgentsView({ q }) {
